@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HTML and CSS Tutorial</title>
+  <meta name="description" content="Online book and video tutorials to make learning web design and devlopement better.">
+<style type="text/css">
+@font-face {
+  font-family: 'League Gothic';
+  src: url('/assets/fonts/leaguegothic-italic-webfont.eot');
+  src: url('/assets/fonts/leaguegothic-italic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/leaguegothic-italic-webfont.woff') format('woff'),
+       url('/assets/fonts/leaguegothic-italic-webfont.ttf') format('truetype'),
+       url('/assets/fonts/leaguegothic-italic-webfont.svg#league_gothic_italicregular') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:active, a:hover {
+  outline: 0;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+  max-width: 100%; 
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-weight: 200;
+  line-height: 1.5;
+}
+#wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+@media (max-width: 999px) {
+  #wrapper {
+    width: 94%;
+    margin: 0 0 0 3%;
+  }
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+  <header id="header">
+    <h1>HTML and CSS Tutorial</h1>
+  </header><!-- #header -->
+
+  <div id="developers-intro-page" class="page">
+    <section class="row hero-shot">
+      <h2>Kittens Are Dying</h2>
+      <p>Because of the pile of crap for teaching web development to newbies.</p>
+    </section>
+    <section class="row copy">
+      <h2>The Problem</h2>
+      <p>What does a newbie find when getting into web development for the first time?</p>
+
+      <p>
+        If they&#39;re lucky, and young enough to be in school, they might learn web development on
+        <a href="http://www.adobe.com/products/dreamweaver.html">Adobe Dreamweaver</a>,
+        and we all know how that turns out:
+      </p>
+      <p class="callout">
+        We're looking at you
+        <a href="http://stackoverflow.com/a/1832251/1990885">MM_preloadImages()</a>.
+      </p>
+
+      <p>
+        If they&#39;re a little less lucky, they&#39;ll turn to the googles and search
+        &quot;<a href="https://www.google.com/search?q=learn+html">learn html</a>&quot; or
+        &quot;<a href="https://www.google.com/search?q=html+tutorial">html tutorial</a>&quot;
+        and:
+      </p>
+      <p class="callout">
+        Get this <a href="http://www.w3schools.com/">unyielding pile of dung</a>.
+      </p>
+
+      <p>
+        Or maybe they&#39;ll come accross a card carrying HTML expert on an internet forum
+        who will tell them to:
+      </p>
+      <p class="callout">
+        <a href="http://programmers.stackexchange.com/a/64057">Go read the spec</a>.
+      </p>
+
+      <p>This situation needs improvement.</p>
+    </section>
+    <section class="row copy">
+      <h2>The Plan</h2>
+      <p>
+        We (web developers) need to create a comprehensive &quot;online book&quot;,
+        with no paywall, which is fully crawlable by Google.
+        It should cover the basics of HTML, CSS, and JavaScript, and include a full reference section for each.
+      </p>
+      <p class="callout">
+        So, I've started working on The HTML and CSS Tutorial
+        (which currently only exists in the form of the
+        web page you are staring at right now).
+      </p>
+      <p>
+        This online book will be tasty treat for the Google index, and &ndash; hopefully &ndash;
+        link bait for the whole web development and design community.
+        Each section and reference snippet should have a URL to be easily linked to from places like
+        <a href="http://stackoverflow.com/">StackOverflow</a>.
+      </p>
+      <p>
+        On top of that, there should be high quality video tutorials.
+        Some of them for free, and others for sale.
+      </p>
+      <p class="callout">
+        A win for everyone, FTW.
+      </p>
+    </section>
+    <section class="row">
+      <h2>I Need You</h2>
+    </section>
+    <section class="row" itemscope itemtype="http://schema.org/Person">
+      <h2>About Me</h2>
+      <p>
+        I do HTML, CSS, and JavaScript stuff for
+        <a href="http://www.madglory.com/">MadGlory Interactive</a>
+        and <a href="http://www.pinfinity.co">Pinfinity Books</a>.
+        I love what I do.
+      </p>
+      <div class="profile-container">
+        <p class="name" itemprop="name">Kris Walker</p>
+      </div>
+      <p>
+        <a href="">Follow me on Twitter</a>
+        and check out <a href="http://www.kixx.name">my website</a>.
+      </p>
+    </section>
+  </div><!-- .page -->
+</div><!-- #wrapper -->
+</body>
+</html>
