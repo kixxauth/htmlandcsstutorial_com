@@ -7,13 +7,13 @@
 <style type="text/css">
 @font-face {
   font-family: 'League Gothic';
-  src: url('/assets/fonts/leaguegothic-italic-webfont.eot');
-  src: url('/assets/fonts/leaguegothic-italic-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/assets/fonts/leaguegothic-italic-webfont.woff') format('woff'),
-       url('/assets/fonts/leaguegothic-italic-webfont.ttf') format('truetype'),
-       url('/assets/fonts/leaguegothic-italic-webfont.svg#league_gothic_italicregular') format('svg');
+  src: url('/assets/fonts/leaguegothic-regular-webfont.eot');
+  src: url('/assets/fonts/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/leaguegothic-regular-webfont.woff') format('woff'),
+       url('/assets/fonts/leaguegothic-regular-webfont.ttf') format('truetype'),
+       url('/assets/fonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
   font-weight: normal;
-  font-style: italic;
+  font-style: normal;
 }
 * {
   -moz-box-sizing: border-box;
@@ -36,7 +36,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  font-family: "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
 }
 a:focus {
   outline: thin dotted;
@@ -63,41 +63,46 @@ a {
   color: #0092bf;
 }
 .highlight {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
   color: #f14a25;
-  font-size: 1.6em;
+  font-size: 3em;
+  font-weight: normal;
 }
 p.callout {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
   margin: 0.5em 1em 1em;
   padding: 0 1em;
-  font-weight: bold;
-  font-size: 1.4em;
+  font-weight: normal;
+  font-size: 2.5em;
   color: #999;
 }
 #header {
   border-bottom: #333 1px solid;
 }
 #header>h1 {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
   margin: 0.2em 16px;
-  font-size: 1.5em;
+  font-size: 2em;
   color: #333;
   font-weight: normal;
 }
 #header>h1>img {
   float: right;
+  margin: 0.3em 12px;
 }
 #footer {
-  margin-top: 20px;
   border-top: #333 1px solid;
   padding: 1em 0;
 }
 #footer>p {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
   margin: 0.2em 16px;
-  font-size: 1.2em;
+  font-size: 1.5em;
   color: #333;
 }
 #wrapper {
   width: 960px;
-  margin: 30px auto 0;
+  margin: 30px auto;
 }
 @media (max-width: 999px) {
   #wrapper {
@@ -114,17 +119,22 @@ p.callout {
   color: #fff;
 }
 #developers-intro-page section.hero-shot>h2{
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  letter-spacing: 0.05em;
   text-align: center;
-  font-size: 4.5em;
+  font-size: 7em;
+  font-weight: normal;
   text-transform: uppercase;
   margin: 0 12px;
   line-height: 1;
 }
 #developers-intro-page section.hero-shot>p{
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
   text-align: center;
-  font-size: 1.5em;
+  letter-spacing: 0.04em;
+  font-size: 1.9em;
   text-transform: uppercase;
-  margin: 0 3em;
+  margin: 0 4em;
   line-height: 1.2;
 }
 #developers-intro-page section.subheader,
@@ -136,8 +146,9 @@ p.callout {
   padding-bottom: 16px;
 }
 #developers-intro-page section.copy>h2 {
-  font-size: 2.4em;
-  text-transform: uppercase;
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  font-size: 4em;
+  font-weight: normal;
   color: #fff;
   background-color: #0092bf;
   margin: 0 0 -999px;
@@ -205,11 +216,11 @@ p.callout {
         with no paywall, which is fully crawlable by Google.
         It should cover the basics of HTML, CSS, and JavaScript, and include a full reference section for each.
       </p>
+      <p>So, I've started working on</p>
       <p class="callout">
-        So, I've started working on <strong>The HTML and CSS Tutorial</strong>
-        (which currently only exists in the form of the
-        web page you are staring at right now).
+        The HTML and CSS Tutorial
       </p>
+      <p>(which currently only exists in the form of the web page you are staring at right now).</p>
       <p>
         The idea is that this online book will be a tasty treat for the Google index,
         and &mdash; hopefully &mdash;
@@ -231,11 +242,11 @@ p.callout {
     <section class="row copy" itemscope itemtype="http://schema.org/Person">
       <h2>About Me</h2>
       <p>
-        My name is <strong itemprop="name">Kris Walker</strong>.
-        I do HTML, CSS, and JavaScript stuff for
+        My name is <strong itemprop="name">Kris Walker</strong>
+        and I do HTML, CSS, and JavaScript stuff for
         <a itemprop="worksFor" href="http://www.madglory.com/">MadGlory Interactive</a>
-        and <a itemprop="worksFor" href="http://www.pinfinity.co">Pinfinity Books</a>,
-        and I love what I do.
+        and <a itemprop="worksFor" href="http://www.pinfinity.co">Pinfinity Books</a>.
+        I love what I do and I don't want kittens to die.
       </p>
       <p>
         You should follow me on <a href="https://twitter.com/kixxauth">Twitter</a>
@@ -246,7 +257,7 @@ p.callout {
 </div><!-- #wrapper -->
 <footer id="footer">
   <p>
-    This site is cool because:
+    This site is cool because:&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="/assets/images/html5-badge.png" alt="W3C HTML5 badge" />
     and it has a flat design (because I'm lazy).
   </p>
