@@ -213,8 +213,8 @@ p.callout {
   float: left;
   width: 41%;
 }
-#developers-intro-page section.copy p,
-#developers-intro-page section.copy .copy-block {
+#developers-intro-page section.copy>p,
+#developers-intro-page section.copy>.copy-block {
   margin-left: 44%;
   margin-right: 3%;
 }
@@ -233,6 +233,14 @@ p.callout {
 }
 .javascript #developers-intro-page #subscribe {
   display: none;
+}
+#developers-intro-page .subscribe-thank-you .highlight {
+  font-size: 1em;
+}
+#developers-intro-page .subscribe-thank-you {
+  display: none;
+  text-align: center;
+  border: 1px solid #aaa;
 }
 </style>
 </head>
@@ -338,6 +346,15 @@ p.callout {
           <input type="submit" value="Send" class="button" />
         </div>
       </form>
+      <div class="subscribe-thank-you copy-block">
+        <p class="callout">
+          <strong class="highlight">Thanks so much!</strong>
+        </p>
+        <p class="info-callout">
+          Follow me on <a href="https://twitter.com/kixxauth">Twitter</a>
+          or email me directly at <strong>kris@kixx.name</strong>
+        </p>
+      </div>
       <p class="info-callout">
         Get involved by dropping off your email address so that I can send an
         <strong>occassional</strong> electronic mail message to keep you up to date on progress.
@@ -380,8 +397,35 @@ p.callout {
     return false;
   });
 
+  $('#subscribe').on('submit', function (ev) {
+    ev.preventDefault();
+
+    var $form = $(this)
+      , $email = $form.find('input[name="email"]')
+      , email = $email.val()
+
+    if (email.length < 3) {
+      alert('The email part is required.');
+      $email.focus().select();
+      return false;
+    }
+    postSubscription($form, onSubscriptionSuccess);
+    $form.fadeOut(200);
+    return false;
+  })
+
   function showSubscriptionForm() {
     $('#subscribe').slideDown(600);
+  }
+
+  function postSubscription($form, callback) {
+    var url = $form.attr('action')
+      , data = $form.serialize()
+    jQuery.post(url, data).always(callback);
+  }
+
+  function onSubscriptionSuccess() {
+    $('.subscribe-thank-you').fadeIn(400);
   }
 })</script>
 
