@@ -45,18 +45,19 @@ setup () {
   if ! [ -d "$BASE/node_modules" ]; then
     cd "$BASE/"
     mkdir "$BASE/node_modules"
-    npm install http-server
+    npm install ecstatic
+    npm install coffee-script
   fi
 }
 
 devserver () {
   setup
-  node_modules/.bin/http-server "$BASE/public/" -p 8080 -a 127.0.0.1
+  bin/devserver
 }
 
 server () {
   setup
-  node_modules/.bin/http-server "$BASE/public/" -p 8009 -a 127.0.0.1 -d "false"
+  bin/proserver
 }
 
 clean () {

@@ -1,0 +1,5 @@
+#!/bin/bash
+BIN="$(cd `dirname "$0"` && pwd)"
+ROOT_DIR="$(dirname $BIN)"
+
+node "$ROOT_DIR/server.js"
