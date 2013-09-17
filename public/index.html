@@ -385,7 +385,30 @@ p.callout {
   </p>
 </footer>
 
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-44059899-1', 'htmlandcsstutorial.com');
+ga('send', 'pageview');
+</script>
+<script>var _kmq = _kmq || [];
+var _kmk = _kmk || '5d1d3dea1417162a5fd16af88bd6e68682dc9ccb';
+function _kms(u){
+  setTimeout(function(){
+    var d = document, f = d.getElementsByTagName('script')[0],
+    s = d.createElement('script');
+    s.type = 'text/javascript'; s.async = true; s.src = u;
+    f.parentNode.insertBefore(s, f);
+  }, 1);
+}
+_kms('//i.kissmetrics.com/i.js');
+_kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
+</script>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 <script>jQuery(function ($) {
   $('.subscribe-button').find('a').on('click', function (ev) {
     var $link = $(this);
@@ -421,6 +444,13 @@ p.callout {
   function postSubscription($form, callback) {
     var url = $form.attr('action')
       , data = $form.serialize()
+      , email = $form.find('input[name="email"]').val()
+      , firstName = $form.find('input[name="first_name"]').val()
+
+    _kmq.push(['identify', email]);
+    _kmq.push(['set', {'first name': firstName || 'not provided'}]);
+    _kmq.push(['record', 'subscribed to newsletter', {'newsletter name': 'Promotional Developers'}]);
+    _kmq.push(['record', 'activated']);
     jQuery.post(url, data).always(callback);
   }
 
