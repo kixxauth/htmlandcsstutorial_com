@@ -1,0 +1,15 @@
+#!/bin/bash
+BINDIR="$(cd `dirname "$0"` && pwd)"
+ROOTDIR="$( dirname "$BINDIR" )"
+LOGDIR=/var/log/htmlandcsstutorial_com
+
+main () {
+	if ! [ -d $LOGDIR ]; then
+		mkdir $LOGDIR
+	fi
+	nohup node "$ROOTDIR/server.js" \
+        "127.0.0.1:8006" \
+        > $LOGDIR/out.log 2> $LOGDIR/err.log &
+}
+
+main "$@"

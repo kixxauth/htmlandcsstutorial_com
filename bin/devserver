@@ -2,4 +2,4 @@
 BIN="$(cd `dirname "$0"` && pwd)"
 ROOT_DIR="$(dirname $BIN)"
 
-node "$ROOT_DIR/server.js"
+node "$ROOT_DIR/server.js" "127.0.0.1:8080"

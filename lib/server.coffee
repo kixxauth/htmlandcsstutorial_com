@@ -17,8 +17,8 @@ class HTTPServer
 
   constructor: (opts) ->
     @root = opts.root
-    @port = 8080
-    @hostname = '127.0.0.1'
+    @port = opts.port
+    @hostname = opts.hostname
     @server = HTTP.createServer(@httpHandler())
 
     # https://github.com/jesusabdullah/node-ecstatic
