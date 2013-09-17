@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html class="no-javascript">
 <head>
   <meta charset="utf-8">
   <title>HTML and CSS Tutorial</title>
   <meta name="description" content="Online book and video tutorials to make learning web design and devlopement better.">
+<script>
+document.documentElement.className = 'javascript';
+</script>
 <style type="text/css">
 @font-face {
   font-family: 'League Gothic';
@@ -44,12 +47,6 @@ a:focus {
 a:active, a:hover {
   outline: 0;
 }
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-  vertical-align: middle;
-  max-width: 100%; 
-}
 body {
   padding: 0 0 1em 0;
   margin: 0;
@@ -58,9 +55,64 @@ body {
   line-height: 1.5;
   background-color: #000;
 }
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+  max-width: 100%; 
+}
 a {
   text-decoration: none;
   color: #0092bf;
+}
+form label {
+  margin-bottom: 0.75em;
+  font-size: 1.1em;
+  display: block;
+  color: #777;
+}
+form input[type="text"],
+form input[type="email"] {
+  display: inline-block;
+  padding: 0.5em 1em;
+  -webkit-box-shadow: 0 0 0 2px rgba(100,100,100,0.3);
+  box-shadow: 0 0 0 2px rgba(100,100,100,0.3); 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #777;
+}
+form input[type="text"]:hover,
+form input[type="email"]:hover {
+  -webkit-box-shadow: 0 0 0 3px rgba(100,100,100,0.4);
+  box-shadow: 0 0 0 3px rgba(100,100,100,0.4); 
+}
+form input[type="text"]:focus,
+form input[type="email"]:focus {
+  -webkit-box-shadow: 0 0 0 3px #0092bf;
+  box-shadow: 0 0 0 3px #0092bf; 
+}
+form .form-controls {
+  margin: 1.5em 0;
+}
+.button {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  display: inline-block;
+  background-color: #fff;
+  padding: 0.3em 1em;
+  -webkit-box-shadow: 0 0 0 2px #0092bf;
+  box-shadow: 0 0 0 2px #0092bf; 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #0092bf;
+}
+.button:hover {
+  -webkit-box-shadow: 0 0 0 3px #0092bf;
+  box-shadow: 0 0 0 3px #0092bf; 
 }
 .highlight {
   font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
@@ -70,10 +122,15 @@ a {
 }
 p.callout {
   font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
-  margin: 0.5em 1em 1em;
-  padding: 0 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.7em;
+  padding: 0 3%;
   font-weight: normal;
   font-size: 2.5em;
+  color: #999;
+}
+.info-callout {
+  padding: 0 3%;
   color: #999;
 }
 #header {
@@ -156,9 +213,26 @@ p.callout {
   float: left;
   width: 41%;
 }
-#developers-intro-page section.copy p {
+#developers-intro-page section.copy p,
+#developers-intro-page section.copy .copy-block {
   margin-left: 44%;
   margin-right: 3%;
+}
+#developers-intro-page .subscribe-button,
+#developers-intro-page #subscribe {
+  text-align: center;
+}
+#developers-intro-page .subscribe-button {
+  margin: 3em 0;
+}
+#developers-intro-page #subscribe {
+  margin-bottom: 3em;
+}
+.no-javascript #developers-intro-page .subscribe-button {
+  display: none;
+}
+.javascript #developers-intro-page #subscribe {
+  display: none;
 }
 </style>
 </head>
@@ -218,9 +292,11 @@ p.callout {
       </p>
       <p>So, I've started working on</p>
       <p class="callout">
-        The HTML and CSS Tutorial
+        The HTML and CSS Tutorial<br>
       </p>
-      <p>(which currently only exists in the form of the web page you are staring at right now).</p>
+      <p class="info-callout"><em>
+        Which currently only exists in the form of the web page you are staring at right now.
+      </em></p>
       <p>
         The idea is that this online book will be a tasty treat for the Google index,
         and &mdash; hopefully &mdash;
@@ -238,6 +314,35 @@ p.callout {
     </section>
     <section class="row copy">
       <h2>I Need You</h2>
+      <p>
+        When a newbie asks you where to go to get started, wouldn't you like to have a place to send them?
+      </p>
+      <p>
+        Even though this project will start off at the introductory level,
+        and is probably beneath you, I still need you to help spread the word
+        and establish some credibility in web development land.
+      </p>
+      <p class="subscribe-button">
+        <a class="button" href="#subscribe">I&#39;m In &raquo;</a>
+      </p>
+      <form id="subscribe" class="copy-block" action="/subscribers/" method="POST">
+        <div class="form-controls">
+          <label for="first_name">Your name, so I can avoid being rude</label>
+          <input type="text" id="first_name" name="first_name" placeholder="First name" size="26" />
+        </div>
+        <div class="form-controls">
+          <label for="email">Your email, so I can get in touch</label>
+          <input type="email" id="email" name="email" placeholder="Email" size="26" />
+        </div>
+        <div class="form-controls">
+          <input type="submit" value="Send" class="button" />
+        </div>
+      </form>
+      <p class="info-callout">
+        Get involved by dropping off your email address so that I can send an
+        <strong>occassional</strong> electronic mail message to keep you up to date on progress.
+        Then, the only thing you need to do, is spread the word about it.
+      </p>
     </section>
     <section class="row copy" itemscope itemtype="http://schema.org/Person">
       <h2>About Me</h2>
@@ -257,10 +362,28 @@ p.callout {
 </div><!-- #wrapper -->
 <footer id="footer">
   <p>
-    This site is cool because:&nbsp;&nbsp;&nbsp;&nbsp;
+    This site is cool because it has&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="/assets/images/html5-badge.png" alt="W3C HTML5 badge" />
-    and it has a flat design (because I'm lazy).
+    and it has a flat design (mostly because I'm lazy).
   </p>
 </footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>jQuery(function ($) {
+  $('.subscribe-button').find('a').on('click', function (ev) {
+    var $link = $(this);
+    if (!/subscribe/.test($link.attr('href'))) {
+      return;
+    }
+    ev.preventDefault();
+    $link.hide(600, showSubscriptionForm);
+    return false;
+  });
+
+  function showSubscriptionForm() {
+    $('#subscribe').slideDown(600);
+  }
+})</script>
+
 </body>
 </html>

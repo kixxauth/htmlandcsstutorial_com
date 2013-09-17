@@ -1,6 +1,11 @@
 HTTP = require 'http'
-URL = require 'url'
+URL  = require 'url'
+QS   = require 'querystring'
+FS   = require 'fs'
+
 ECSTATIC = require 'ecstatic'
+
+DATA_FILE = '/var/htmlandcsstutorial_com/data/dev_subscribers'
 
 
 class HTTPServer
@@ -56,7 +61,57 @@ class HTTPServer
     return handler
 
   handleSubscriber: (pathname, req, res) ->
-    return false
+    unless /\/subscribers/.test(pathname) and req.method is "POST"
+      return false
+
+    body = ''
+
+    req.setEncoding('utf8')
+    req.on 'data', (chunk) ->
+      body += chunk
+      return
+
+    req.on 'end', =>
+      @processSubscriber(req, res, body)
+      return
+
+    return true
+
+  processSubscriber: (req, res, body) ->
+    if body.length > 999
+      return @handleIntruder(req, res, "request body too large")
+    if body.length < 4
+      return @handleIntruder(req, res, "request body too small")
+
+    try
+      data = QS.parse(body)
+    catch parseErr
+      console.error('form-urlencoded parsing error:')
+      console.error(parseErr.stack)
+      return @handleIntruder(req, res, "form-urlencoded parsing error")
+    
+    recordSubscriber(data)
+    html = """<html><head><title>Thanks</title></head>
+    <body><p>Thanks for subscribing</p></body>
+    <html>"""
+    res.writeHead(201, {
+      'Content-Length': html.length
+      'Content-Type': 'text/html'
+    })
+    res.end(html)
+    return
+
+  handleIntruder: (req, res, reason) ->
+    console.log("Intrusion handling for: #{reason}")
+    html = """<html><head><title>Invalid Request</title></head>
+    <body><p>That was an invalid request.</p></body>
+    <html>"""
+    res.writeHead(400, {
+      'Content-Length': html.length
+      'Content-Type': 'text/html'
+    })
+    res.end(html)
+    return
 
   handleStatic: (req, res) ->
     @staticServer(req, res)
@@ -72,6 +127,20 @@ exports.main = (opts) ->
   process.on('uncaughtException', onUncaughtException)
   server = new HTTPServer(opts).initialize()
   return server
+
+
+recordSubscriber = (data) ->
+  data or= Object.create(null)
+  name = data.first_name or 'NIL'
+  email = data.email or 'NIL'
+  record = "#{email}\t\t#{name}\n"
+
+  FS.appendFile DATA_FILE, record, {encoding: 'utf8'}, (err) ->
+    if err
+      console.error("Error writing data file:")
+      console.error(err.stack)
+    return
+  return
 
 
 onUncaughtException = (err) ->
