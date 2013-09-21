@@ -20,4 +20,5 @@ TAGS
 node_modules/**
 scripts/node_modules/**
 
-content/**
+# Generated content
+public/**

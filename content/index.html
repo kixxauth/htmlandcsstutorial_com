@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="no-javascript">
+<head>
+  <meta charset="utf-8">
+  <title>HTML and CSS Tutorial</title>
+  <meta name="description" content="Online book and video tutorials to make learning web design and devlopement better.">
+<script>
+document.documentElement.className = 'javascript';
+</script>
+<style type="text/css">
+@font-face {
+  font-family: 'League Gothic';
+  src: url('/assets/fonts/leaguegothic-regular-webfont.eot');
+  src: url('/assets/fonts/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/leaguegothic-regular-webfont.woff') format('woff'),
+       url('/assets/fonts/leaguegothic-regular-webfont.ttf') format('truetype'),
+       url('/assets/fonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:active, a:hover {
+  outline: 0;
+}
+body {
+  padding: 0 0 1em 0;
+  margin: 0;
+  font-size: 1em;
+  font-weight: 200;
+  line-height: 1.5;
+  background-color: #000;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+  max-width: 100%; 
+}
+a {
+  text-decoration: none;
+  color: #0092bf;
+}
+form label {
+  margin-bottom: 0.75em;
+  font-size: 1.1em;
+  display: block;
+  color: #777;
+}
+form input[type="text"],
+form input[type="email"] {
+  display: inline-block;
+  padding: 0.5em 1em;
+  -webkit-box-shadow: 0 0 0 2px rgba(100,100,100,0.3);
+  box-shadow: 0 0 0 2px rgba(100,100,100,0.3); 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #777;
+}
+form input[type="text"]:hover,
+form input[type="email"]:hover {
+  -webkit-box-shadow: 0 0 0 3px rgba(100,100,100,0.4);
+  box-shadow: 0 0 0 3px rgba(100,100,100,0.4); 
+}
+form input[type="text"]:focus,
+form input[type="email"]:focus {
+  -webkit-box-shadow: 0 0 0 3px #0092bf;
+  box-shadow: 0 0 0 3px #0092bf; 
+}
+form .form-controls {
+  margin: 1.5em 0;
+}
+.button {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  display: inline-block;
+  background-color: #fff;
+  padding: 0.3em 1em;
+  -webkit-box-shadow: 0 0 0 2px #0092bf;
+  box-shadow: 0 0 0 2px #0092bf; 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #0092bf;
+}
+.button:hover {
+  -webkit-box-shadow: 0 0 0 3px #0092bf;
+  box-shadow: 0 0 0 3px #0092bf; 
+}
+.highlight {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  color: #f14a25;
+  font-size: 3em;
+  font-weight: normal;
+}
+p.callout {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  margin-top: 0.5em;
+  margin-bottom: 0.7em;
+  padding: 0 3%;
+  font-weight: normal;
+  font-size: 2.5em;
+  color: #999;
+}
+.info-callout {
+  padding: 0 3%;
+  color: #999;
+}
+#header {
+  border-bottom: #333 1px solid;
+}
+#header>h1 {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  margin: 0.2em 16px;
+  font-size: 2em;
+  color: #333;
+  font-weight: normal;
+}
+#header>h1>img {
+  float: right;
+  margin: 0.3em 12px;
+}
+#footer {
+  border-top: #333 1px solid;
+  padding: 1em 0;
+}
+#footer>p {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  margin: 0.2em 16px;
+  font-size: 1.5em;
+  color: #333;
+}
+#wrapper {
+  width: 960px;
+  margin: 30px auto;
+}
+@media (max-width: 999px) {
+  #wrapper {
+    width: 94%;
+    margin: 0 0 0 3%;
+  }
+}
+#developers-intro-page section.copy {
+  background-color: #fff;
+}
+#developers-intro-page section.hero-shot {
+  padding: 4em 0;
+  background-color: #f14a25;
+  color: #fff;
+}
+#developers-intro-page section.hero-shot>h2{
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  letter-spacing: 0.05em;
+  text-align: center;
+  font-size: 7em;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: 0 12px;
+  line-height: 1;
+}
+#developers-intro-page section.hero-shot>p{
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  text-align: center;
+  letter-spacing: 0.04em;
+  font-size: 1.9em;
+  text-transform: uppercase;
+  margin: 0 4em;
+  line-height: 1.2;
+}
+#developers-intro-page section.subheader,
+#developers-intro-page section.copy {
+  margin-top: 16px;
+  overflow: hidden;
+}
+#developers-intro-page section.copy {
+  padding-bottom: 16px;
+}
+#developers-intro-page section.copy>h2 {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  font-size: 4em;
+  font-weight: normal;
+  color: #fff;
+  background-color: #0092bf;
+  margin: 0 0 -999px;
+  padding: 0.3em 3% 999px;
+  float: left;
+  width: 41%;
+}
+#developers-intro-page section.copy>p,
+#developers-intro-page section.copy>.copy-block {
+  margin-left: 44%;
+  margin-right: 3%;
+}
+#developers-intro-page .subscribe-button,
+#developers-intro-page #subscribe {
+  text-align: center;
+}
+#developers-intro-page .subscribe-button {
+  margin: 3em 0;
+}
+#developers-intro-page #subscribe {
+  margin-bottom: 3em;
+}
+.no-javascript #developers-intro-page .subscribe-button {
+  display: none;
+}
+.javascript #developers-intro-page #subscribe {
+  display: none;
+}
+#developers-intro-page .subscribe-thank-you .highlight {
+  font-size: 1em;
+}
+#developers-intro-page .subscribe-thank-you {
+  display: none;
+  text-align: center;
+  border: 1px solid #aaa;
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <h1>The HTML and CSS Tutorial
+    <img src="/assets/images/HTML5_Badge_32.png" alt="W3C HTML5 badge" />
+  </h1>
+</header><!-- #header -->
+
+<div id="wrapper">
+
+  <div id="developers-intro-page" class="page">
+    <section class="row hero-shot">
+      <h2>Kittens Are Dying</h2>
+      <p>Because of the pile of crap served to newbies trying to learn web development.</p>
+    </section>
+    <section class="row copy">
+      <h2>The Problem</h2>
+      <p>
+        If they&#39;re lucky, and young enough to be in school, a newbie might learn web development on
+        <a href="http://www.adobe.com/products/dreamweaver.html">Adobe Dreamweaver</a>.
+        We all know how that turns out:
+      </p>
+      <p class="callout">
+        Looking at you
+        <a href="http://stackoverflow.com/a/1832251/1990885">MM_preloadImages</a>.
+      </p>
+
+      <p>
+        If they&#39;re a little less lucky, they&#39;ll turn to the googles and search
+        &quot;<a href="https://www.google.com/search?q=learn+html">learn html</a>&quot; or
+        &quot;<a href="https://www.google.com/search?q=html+tutorial">html tutorial</a>&quot;
+        and:
+      </p>
+      <p class="callout">
+        Get an unyielding <a href="http://www.w3schools.com/">pile of dung</a>.
+      </p>
+
+      <p>
+        Or maybe they&#39;ll come accross a card carrying HTML expert on an internet forum
+        who will tell them to:
+      </p>
+      <p class="callout">
+        Go read the <a href="http://programmers.stackexchange.com/a/64057">spec</a>.
+      </p>
+
+      <p><strong class="highlight">This situation needs improvement.</strong></p>
+    </section>
+    <section class="row copy">
+      <h2>The Plan</h2>
+      <p>
+        We (web developers) need to create a comprehensive &quot;online book&quot;,
+        with no paywall, which is fully crawlable by Google.
+        It should cover the basics of HTML, CSS, and JavaScript, and include a full reference section for each.
+      </p>
+      <p>So, I've started working on</p>
+      <p class="callout">
+        The HTML and CSS Tutorial<br>
+      </p>
+      <p class="info-callout"><em>
+        Which currently only exists in the form of the web page you are staring at right now.
+      </em></p>
+      <p>
+        The idea is that this online book will be a tasty treat for the Google index,
+        and &mdash; hopefully &mdash;
+        link bait for the whole web development and design community.
+        Each section and reference snippet should have a URL to be easily linked to from places like
+        <a href="http://stackoverflow.com/">StackOverflow</a>.
+      </p>
+      <p>
+        On top of that, there should be high quality video tutorials.
+        Some of them for free, and others for sale.
+      </p>
+      <p>
+        <strong class="highlight">A win for everyone; FTW.</strong>
+      </p>
+    </section>
+    <section class="row copy">
+      <h2>I Need You</h2>
+      <p>
+        When a newbie asks you where to go to get started, wouldn't you like to have a place to send them?
+      </p>
+      <p>
+        Even though this project will start off at the introductory level,
+        and is probably beneath you, I still need you to help spread the word
+        and establish some credibility in web development land.
+      </p>
+      <p class="subscribe-button">
+        <a class="button" href="#subscribe">I&#39;m In &raquo;</a>
+      </p>
+      <form id="subscribe" class="copy-block" action="/subscribers/" method="POST">
+        <div class="form-controls">
+          <label for="first_name">Your name, so I can avoid being rude</label>
+          <input type="text" id="first_name" name="first_name" placeholder="First name" size="26" />
+        </div>
+        <div class="form-controls">
+          <label for="email">Your email, so I can get in touch</label>
+          <input type="email" id="email" name="email" placeholder="Email" size="26" />
+        </div>
+        <div class="form-controls">
+          <input type="submit" value="Send" class="button" />
+        </div>
+      </form>
+      <div class="subscribe-thank-you copy-block">
+        <p class="callout">
+          <strong class="highlight">Thanks so much!</strong>
+        </p>
+        <p class="info-callout">
+          Follow me on <a href="https://twitter.com/kixxauth">Twitter</a>
+          or email me directly at <strong>kris@kixx.name</strong>
+        </p>
+      </div>
+      <p class="info-callout">
+        Get involved by dropping off your email address so that I can send an
+        <strong>occassional</strong> electronic mail message to keep you up to date on progress.
+        Then, the only thing you need to do, is spread the word about it.
+      </p>
+    </section>
+    <section class="row copy" itemscope itemtype="http://schema.org/Person">
+      <h2>About Me</h2>
+      <p>
+        My name is <strong itemprop="name">Kris Walker</strong>
+        and I do HTML, CSS, and JavaScript stuff for
+        <a itemprop="worksFor" href="http://www.madglory.com/">MadGlory Interactive</a>
+        and <a itemprop="worksFor" href="http://www.pinfinity.co">Pinfinity Books</a>.
+        I love what I do and I don't want kittens to die.
+      </p>
+      <p>
+        You should follow me on <a href="https://twitter.com/kixxauth">Twitter</a>
+        and check out <a itemprop="url" href="http://www.kixx.name">my website</a>.
+      </p>
+    </section>
+  </div><!-- .page -->
+</div><!-- #wrapper -->
+<footer id="footer">
+  <p>
+    This site is cool because it has&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="/assets/images/html5-badge.png" alt="W3C HTML5 badge" />
+    and it has a flat design (mostly because I'm lazy).
+  </p>
+</footer>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-44059899-1', 'htmlandcsstutorial.com');
+ga('send', 'pageview');
+</script>
+<script>var _kmq = _kmq || [];
+var _kmk = _kmk || '5d1d3dea1417162a5fd16af88bd6e68682dc9ccb';
+function _kms(u){
+  setTimeout(function(){
+    var d = document, f = d.getElementsByTagName('script')[0],
+    s = d.createElement('script');
+    s.type = 'text/javascript'; s.async = true; s.src = u;
+    f.parentNode.insertBefore(s, f);
+  }, 1);
+}
+_kms('//i.kissmetrics.com/i.js');
+_kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script>jQuery(function ($) {
+  $('.subscribe-button').find('a').on('click', function (ev) {
+    var $link = $(this);
+    if (!/subscribe/.test($link.attr('href'))) {
+      return;
+    }
+    ev.preventDefault();
+    $link.hide(600, showSubscriptionForm);
+    return false;
+  });
+
+  $('#subscribe').on('submit', function (ev) {
+    ev.preventDefault();
+
+    var $form = $(this)
+      , $email = $form.find('input[name="email"]')
+      , email = $email.val()
+
+    if (email.length < 3) {
+      alert('The email part is required.');
+      $email.focus().select();
+      return false;
+    }
+    postSubscription($form, onSubscriptionSuccess);
+    $form.fadeOut(200);
+    return false;
+  })
+
+  function showSubscriptionForm() {
+    $('#subscribe').slideDown(600);
+  }
+
+  function postSubscription($form, callback) {
+    var url = $form.attr('action')
+      , data = $form.serialize()
+      , email = $form.find('input[name="email"]').val()
+      , firstName = $form.find('input[name="first_name"]').val()
+
+    _kmq.push(['identify', email]);
+    _kmq.push(['set', {'first name': firstName || 'not provided'}]);
+    _kmq.push(['record', 'subscribed to newsletter', {'newsletter name': 'Promotional Developers'}]);
+    _kmq.push(['record', 'activated']);
+    jQuery.post(url, data).always(callback);
+  }
+
+  function onSubscriptionSuccess() {
+    $('.subscribe-thank-you').fadeIn(400);
+  }
+})</script>
+
+</body>
+</html>
