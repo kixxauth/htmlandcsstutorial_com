@@ -6,13 +6,29 @@ MARKED = require 'marked'
 SWIG   = require 'swig'
 
 
+isTextFile = (filepath) ->
+  x = NPATH.extname(filepath)
+  if x is '' or x is '.md' or x is '.html' or x is '.svg' or x is '.css' or x is '.javascript'
+    return yes
+  return no
+
+
 readFile = (filepath, callback) ->
-  FS.readFile(filepath, 'utf8', callback)
+  encoding = if isTextFile(filepath) then 'utf8' else null
+  FS.readFile(filepath, encoding, callback)
   return
 
 
-writeFile = (filepath, callback) ->
-  FS.writeFile(filepath, 'utf8', callback)
+writeFile = (filepath, text, callback) ->
+  encoding = if isTextFile(filepath) then 'utf8' else null
+  FS.writeFile(filepath, text, {encoding: encoding}, callback)
+  return
+
+
+copyFile = (filepath, destination, callback) ->
+  readFile filepath, (err, text) ->
+    if err then return callback(err)
+    return writeFile(destination, text, callback)
   return
 
 
@@ -38,8 +54,7 @@ template = (templatePath, context) ->
 generateContent = (templates, filepath, callback) ->
 
   withFrontMatter = (frontMatter) ->
-    if frontMatter is null
-      throw new Error("Front matter file missing for #{filepath}")
+    frontMatter or= Object.create(null)
 
     if NPATH.extname(filepath) is '.md'
       composeMarkdown(filepath, frontMatter, doTemplate)
@@ -52,7 +67,7 @@ generateContent = (templates, filepath, callback) ->
     composeTemplate(templates, context, callback)
     return
 
-  frontMatter = filepath.replace(/md$/, 'ini')
+  frontMatter = filepath.replace(/(md|html)$/, 'ini')
   PATH.newPath(frontMatter).read({parser: 'ini'})
     .then(withFrontMatter).failure(callback)
   return
@@ -95,6 +110,7 @@ exports.main = (opts) ->
   {contentSource, templateSource, contentDest} = opts
 
   src = PATH.newPath(contentSource).resolve()
+  destination = PATH.newPath(contentDest).resolve()
 
   chop = src.toString()
   if chop.charAt(chop.length - 1) isnt '/'
@@ -103,15 +119,24 @@ exports.main = (opts) ->
   src.recurse (filepath) ->
     return unless filepath.isFile()
 
+    relpath = filepath.toString().replace(chop, '')
+    abspath = NPATH.join(destination.toString(), relpath)
+
     ext = NPATH.extname(filepath)
     unless ext is '.md' or ext is '.html'
+      unless ext is '.ini'
+        PATH.newPath(NPATH.dirname(abspath)).mkdir()
+        copyFile(filepath.toString(), abspath, handleError)
       return
 
-    relpath = filepath.toString().replace(chop, '')
+    unless /index\.html$/.test(relpath)
+      relpath = relpath.replace(NPATH.extname(relpath), '')
+      abspath = abspath.replace(NPATH.extname(abspath), '')
+
     generateContent templateSource, filepath.toString(), (err, content) ->
       handleError(err)
-      console.log NPATH.join(src.toString(), relpath)
-      writeFile(NPATH.join(src.toString(), relpath), handleError)
+      PATH.newPath(NPATH.dirname(abspath)).mkdir()
+      writeFile(abspath, content, handleError)
       return
     return
 	return
