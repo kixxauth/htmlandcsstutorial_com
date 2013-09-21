@@ -1,7 +1,7 @@
 HTMLandCSSTutorial dot com
 ==========================
 
-The source code for [www.htmlandcsstutorial.com](http://www.htmlandcsstutorial.com), the website for the *HTML and CSS Tutorial*.
+The source code for [www.htmlandcsstutorial.com](http://www.htmlandcsstutorial.com), the website for __*The HTML and CSS Tutorial*__.
 
 Copyright and License
 ---------------------
