@@ -18,3 +18,6 @@ TAGS
 
 # node modules
 node_modules/**
+scripts/node_modules/**
+
+content/**

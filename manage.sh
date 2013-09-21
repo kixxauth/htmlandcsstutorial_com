@@ -8,6 +8,10 @@ main () {
       shift
       setup "$@"
       ;;
+    'build')
+      shift
+      build "$@"
+      ;;
     'devserver')
       shift
       devserver "$@"
@@ -23,6 +27,9 @@ Possible operations include:
 
   setup - Install dependencies.
     Usage: ./manage.sh setup
+
+  build - Build static content.
+    Usage: ./manage.sh build
 
   devserver - Run the deverserver for local development.
     Usage: ./manage.sh devserver
@@ -41,6 +48,17 @@ setup () {
     npm install ecstatic
     npm install coffee-script
   fi
+  if ! [ -d "$BASE/scripts/node_modules" ]; then
+    cd "$BASE/scripts/"
+    mkdir "$BASE/scripts/node_modules"
+    npm install filepath
+    npm install marked
+  fi
+}
+
+build () {
+  setup
+  node scripts/gstatic.js "$BASE/content/" "$BASE/public/"
 }
 
 devserver () {
@@ -50,6 +68,7 @@ devserver () {
 
 clean () {
   rm -rf "$BASE/node_modules/"
+  rm -rf "$BASE/scripts/node_modules/"
 }
 
 main "$@"
