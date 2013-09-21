@@ -11,6 +11,11 @@ readFile = (filepath, callback) ->
   return
 
 
+writeFile = (filepath, callback) ->
+  FS.writeFile(filepath, 'utf8', callback)
+  return
+
+
 markdown2HTML = (filepath, callback) ->
   opts =
     smartypants: on
@@ -81,6 +86,7 @@ composeTemplate = (templates, context, callback) ->
 
 handleError = (err) ->
   if err
+    console.log(err.stack)
     process.exit(1)
   return
 
@@ -97,14 +103,15 @@ exports.main = (opts) ->
   src.recurse (filepath) ->
     return unless filepath.isFile()
 
-    stringPath = filepath.toString().replace(chop, '')
-    ext = NPATH.extname(stringPath)
+    ext = NPATH.extname(filepath)
     unless ext is '.md' or ext is '.html'
       return
 
+    relpath = filepath.toString().replace(chop, '')
     generateContent templateSource, filepath.toString(), (err, content) ->
       handleError(err)
-      console.log("DONE")
+      console.log NPATH.join(src.toString(), relpath)
+      writeFile(NPATH.join(src.toString(), relpath), handleError)
       return
     return
 	return
