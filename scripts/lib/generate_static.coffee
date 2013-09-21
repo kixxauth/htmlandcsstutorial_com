@@ -129,12 +129,9 @@ exports.main = (opts) ->
         copyFile(filepath.toString(), abspath, handleError)
       return
 
-    unless /index\.html$/.test(relpath)
-      relpath = relpath.replace(NPATH.extname(relpath), '')
-      abspath = abspath.replace(NPATH.extname(abspath), '')
-
     generateContent templateSource, filepath.toString(), (err, content) ->
       handleError(err)
+      abspath = abspath.replace(/\.md$/, '.html')
       PATH.newPath(NPATH.dirname(abspath)).mkdir()
       writeFile(abspath, content, handleError)
       return

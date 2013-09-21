@@ -24,6 +24,7 @@ class HTTPServer
     # https://github.com/jesusabdullah/node-ecstatic
     @staticServer = ECSTATIC({
       root: @root
+      defaultExt: 'html'
     })
 
   initialize: ->
@@ -39,7 +40,7 @@ class HTTPServer
       pathname = decodeURI(url.pathname)
 
       unless self.handleSubscriber(pathname, req, res)
-        self.handleStatic(req, res)
+        self.handleStatic(pathname, req, res)
 
       return
     return handler
@@ -113,7 +114,7 @@ class HTTPServer
     res.end(html)
     return
 
-  handleStatic: (req, res) ->
+  handleStatic: (pathname, req, res) ->
     @staticServer(req, res)
     return true
 
