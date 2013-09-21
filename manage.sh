@@ -53,12 +53,14 @@ setup () {
     mkdir "$BASE/scripts/node_modules"
     npm install filepath
     npm install marked
+    npm install swig
+    cd "$BASE"
   fi
 }
 
 build () {
   setup
-  node scripts/gstatic.js "$BASE/content/" "$BASE/public/"
+  node scripts/gstatic.js "$BASE/content/" "$BASE/templates/" "$BASE/public/"
 }
 
 devserver () {
