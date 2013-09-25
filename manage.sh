@@ -54,6 +54,7 @@ setup () {
     npm install filepath
     npm install marked
     npm install swig
+    npm install request
     cd "$BASE"
   fi
 }
