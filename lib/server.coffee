@@ -115,8 +115,16 @@ class HTTPServer
     return
 
   handleStatic: (pathname, req, res) ->
+    req.url = @rewritePageURL(req.url)
     @staticServer(req, res)
     return true
+
+  rewritePageURL: (url) ->
+    if /\/blog\//.test(url)
+      parsed = URL.parse(url)
+      return "#{parsed.pathname}.html#{parsed.search or ''}"
+    return url
+
 
 
 exports.main = (opts) ->
