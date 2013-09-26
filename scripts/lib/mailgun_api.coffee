@@ -1,8 +1,25 @@
+REQ = require 'request'
+
 
 class APInterface
 
   constructor: (opts) ->
     @mailgunKey = opts.mailgunKey
+
+  # email.to
+  # email.subject
+  # email.text
+  sendMessage: (email, callback) ->
+    opts =
+      path: "/kixx.name/messages"
+      form:
+        from: "kris@kixx.name"
+        to: email.to
+        subject: email.subject
+        text: email.text
+
+    @post(opts, callback)
+    return @
 
   getAddressList: (name, callback) ->
     opts =

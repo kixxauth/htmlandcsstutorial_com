@@ -1,5 +1,3 @@
-REQ = require 'request'
-
 MAILER = require './mailgun_api'
 STDIN  = require './read_stdin'
 
