@@ -117,7 +117,7 @@ your developer friends to come check it out.
   Then, the only thing you need to do, is spread the word about it.
 </p>
 
-<div id="developers-opt-in">
+<div id="developers-opt-in" class="content">
   <p class="subscribe-button">
     <a class="button" href="#subscribe">I&#39;m In &raquo;</a>
   </p>
