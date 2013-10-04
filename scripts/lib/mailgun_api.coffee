@@ -30,6 +30,12 @@ class APInterface
       if err then return callback(err)
 
       members = json.items
+      unless members
+        msg = "Invalid Mailgun return data structure."
+        console.error(msg)
+        console.error(json)
+        return callback(new Error(msg))
+
       if members.length > 1000
         err = new Error("Need to lift Mailgun list member query limit.")
         return callback(err)
@@ -51,9 +57,10 @@ class APInterface
 
     @post opts, (err, json) ->
       if err then return callback(err)
-      json.list.message = json.message
-      callback(null, json.list)
-      return
+      if json.list
+        json.list.message = json.message
+        return callback(null, json.list)
+      return callback(null, json)
 
     return @
 
