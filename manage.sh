@@ -28,9 +28,6 @@ Possible operations include:
   setup - Install dependencies.
     Usage: ./manage.sh setup
 
-  build - Build static content.
-    Usage: ./manage.sh build
-
   devserver - Run the deverserver for local development.
     Usage: ./manage.sh devserver
 
@@ -45,23 +42,15 @@ setup () {
   if ! [ -d "$BASE/node_modules" ]; then
     cd "$BASE/"
     mkdir "$BASE/node_modules"
-    npm install ecstatic
     npm install coffee-script
   fi
   if ! [ -d "$BASE/scripts/node_modules" ]; then
     cd "$BASE/scripts/"
     mkdir "$BASE/scripts/node_modules"
     npm install filepath
-    npm install marked
-    npm install swig
     npm install request
     cd "$BASE"
   fi
-}
-
-build () {
-  setup
-  node scripts/gstatic.js "$BASE/content/" "$BASE/templates/" "$BASE/public/"
 }
 
 devserver () {
