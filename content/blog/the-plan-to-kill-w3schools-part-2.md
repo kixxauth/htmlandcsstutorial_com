@@ -1,3 +1,9 @@
+---
+title: "Details of the Plan to Kill W3Schools"
+description: "Fleshing out the details in a plan to replace bad web development docs with something better."
+page_id: "blog-post"
+---
+
 <h1><a href="/blog/the-plan-to-kill-w3schools-part-2">Some Details on the Plan to Kill W3Schools</a></h1>
 
 So I wrote a blog post Saturday explaining why I have

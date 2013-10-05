@@ -1,3 +1,9 @@
+---
+title: "Why I'm killing W3Schools (And You Can Too)"
+description: "It's time for the top search results in web development learning to step down."
+page_id: "blog-post"
+---
+
 <h1><a href="/blog/why-im-killing-w3schools-and-you-can-too">Why I'm Killing W3Schools (and you can too)</a></h1>
 
 <p class="callout"><a href="/">"Kittens are Dying"</a></p>
