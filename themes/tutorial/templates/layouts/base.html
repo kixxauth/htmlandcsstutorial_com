@@ -4,18 +4,29 @@
   <meta charset="utf-8">
   <title>{{ title }}</title>
   <meta name="description" content="{{ description }}">
-  <script>
-  document.documentElement.className = 'javascript';
-  </script>
+  <script>document.documentElement.className = 'javascript';</script>
   <link rel="stylesheet" href="{{ stylesheet_path }}">
 </head>
-<body>
+<body id="{{ page_id }}">
 
 <header id="header">
   <div class="hgroup">
     <img src="/assets/images/HTML5_Badge_32.png" alt="W3C HTML5 badge" />
     <a href="/">The HTML and CSS Tutorial</a>
   </div>
+  <nav>
+    <ul class="header-nav">
+      <li>
+        <a href="/references/html_grid" title="The HTML Reference Grid">references</a>
+      </li>
+      <li>
+        <a href="/resources/web_developers_directory" title="The Web Developers Resource Directory">resources</a>
+      </li>
+      <li>
+        <a href="/blog/" title="HTML and CSS Tutorial Blog">blog</a>
+      </li>
+    </ul>
+  </nav>
 </header><!-- #header -->
 
 <div id="wrapper">
