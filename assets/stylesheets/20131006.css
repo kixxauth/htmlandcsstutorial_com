@@ -302,7 +302,21 @@ blockquote,
   padding: 0;
   list-style-type: none;
 }
-.reference-grid li {
+.reference-grid>li {
+}
+.reference-grid>li>code {
+  display: block;
+  font-size: 0.95em;
+  padding: 0.5em;
+  margin: 0.5em;
   background-color: #fff;
   font-family: "source_code_pro", monospace;
+}
+.reference-grid>li>code strong {
+  font-size: 1.3em;
+  background-color: #ff9;
+}
+.reference-grid>li>code .text {
+  font-family: "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  color: #999;
 }

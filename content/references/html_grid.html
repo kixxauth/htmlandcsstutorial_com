@@ -1,45 +1,37 @@
 ---
 template: "pages/reference_grid.html"
 page_id: "html-reference-grid"
+reference_tiles:
+  -
+    tagname: "a"
+    attributes: 'href="./reports?report=qr46"<br>rel="alternate"<br>target="_blank"<br>download="quarterly_report.pdf"<br>type="application/pdf"'
+    text: "Querterly Report"
+  -
+    tagname: "div"
+    attributes: 'class="reports"'
+    text: "&lt;p&gt;&hellip;&lt;/p&gt;&lt;p&gt;&hellip;&lt;/p&gt;"
+  -
+    tagname: "header"
+    attributes: 'id="site-branding"<br>class="navbar"'
+    text: "Acme Corp"
+  -
+    tagname: "img"
+    attributes: 'src="/images/john-doe-avatar.jpg"<br>alt="John Doe avatar"<br>height="150"<br>width="120"<br>crossorigin="anonymous"<br>usemap="#head-map"<br>ismap'
 ---
 
+
 <ul id="html-elements-grid" class="reference-grid">
-  <li>
-    <strong>&lt;a</strong><br>
-    href="./reports?report=qr46"<br>
-    rel="alternate"<br>
-    target="_blank"<br>
-    download="quarterly_report.pdf"<br>
-    type="application/pdf"
-    <strong>&gt;</strong><br>
-    Querterly Report<br>
-    <strong>&lt;/a&gt;</strong>
-  </li>
-  <li>
-    <strong>&lt;div</strong><br>
-    class="references"
-    <strong>&gt;</strong><br>
-    &lt;p&gt;&hellip;&lt;/p&gt;&lt;p&gt;&hellip;&lt;/p&gt;<br>
-    <strong>&lt;/div&gt;</strong>
-  </li>
-  <li>
-    <strong>&lt;header</strong><br>
-    id="site-branding"<br>
-    class="navbar"<strong>&gt;</strong><br>
-    Acme Corp<br>
-    <strong>&lt;/header&gt;</strong>
-  </li>
-  <li>
-    <strong>&lt;img</strong><br>
-    src="/images/john-doe-avatar.jpg"<br>
-    alt="John Doe avatar"<br>
-    height="150"<br>
-    width="120"<br>
-    crossorigin="anonymous"<br>
-    usemap="#head-map"<br>
-    ismap
+  {% for item in reference_tiles %}
+  <li><code>
+    <strong>&lt;{{ item.tagname }}</strong><br>
+    {{ item.attributes }}<br>
+    {% if item.text %}
+    <strong>&gt;</strong><span class="text">{{ item.text }}</span><strong>&lt;/{{ item.tagname }}&gt;</strong>
+    {% else %}
     <strong>&gt;</strong>
-  </li>
+    {% endif %}
+  </code></li>
+  {% endfor %}
 </ul>
 
 <section id="tag-a-card" class="reference-card">
