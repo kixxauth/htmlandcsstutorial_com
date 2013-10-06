@@ -104,11 +104,29 @@ form .form-controls {
   -webkit-box-shadow: 0 0 0 3px #0092bf;
   box-shadow: 0 0 0 3px #0092bf; 
 }
+.highlight {
+  color: #f14a25;
+  font-weight: normal;
+}
+p.callout {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  margin-top: 0.5em;
+  margin-bottom: 0.7em;
+  padding: 0 3%;
+  font-weight: normal;
+  font-size: 2.5em;
+  color: #999;
+}
+blockquote,
+.info-callout {
+  padding: 0 3%;
+  color: #777;
+}
 #wrapper {
-  width: 960px;
+  width: 1000px;
   margin: 30px auto;
 }
-@media (max-width: 999px) {
+@media (max-width: 1023px) {
   #wrapper {
     width: 94%;
     margin: 0 0 0 3%;
@@ -150,8 +168,8 @@ form .form-controls {
 #sitenav a:hover {
   color: #0092bf;
 }
-
 #footer {
+  border-top: #444 1px solid;
   background-color: #191919;
   color: #555;
   padding: 20px;
@@ -169,4 +187,77 @@ form .form-controls {
 }
 #footer .legal>.text {
   margin-left: 98px;
+}
+.row.content {
+  background-color: #fff;
+}
+#home-page .row.headline {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 4em 0;
+  background-color: #f14a25;
+  color: #fff;
+}
+#home-page .row.headline>h1 {
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  font-size: 7em;
+  margin: 0 12px;
+  line-height: 1;
+}
+#home-page .row.headline>h1>a {
+  color: #fff;
+}
+#home-page .row.headline>p {
+  letter-spacing: 0.04em;
+  font-size: 1.9em;
+  margin: 0 4em;
+  line-height: 1.2;
+}
+#home-page .row.content {
+  overflow: hidden;
+  margin-top: 16px;
+}
+#home-page .row.content>h2 {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  font-size: 4em;
+  line-height: 1.2;
+  font-weight: normal;
+  color: #fff;
+  background-color: #0092bf;
+  margin: 0 0 -999px;
+  padding: 0.3em 3% 999px;
+  float: left;
+  width: 41%;
+}
+#home-page .row.content>p,
+#home-page .row.content>h3,
+#home-page .row.content>.inner {
+  margin-left: 44%;
+  margin-right: 3%;
+}
+#opt-in-form .subscribe-button,
+#opt-in-form #subscribe {
+  text-align: center;
+}
+#opt-in-form .subscribe-button {
+  margin: 3em 0;
+}
+#opt-in-form #subscribe {
+  margin-bottom: 3em;
+}
+.no-js #opt-in-form .subscribe-button {
+  display: none;
+}
+.js #opt-in-form #subscribe {
+  display: none;
+}
+#opt-in-form .subscribe-thank-you .highlight {
+  font-size: 1em;
+}
+#opt-in-form .subscribe-thank-you {
+  display: none;
+  text-align: center;
+  border: 1px solid #aaa;
 }
