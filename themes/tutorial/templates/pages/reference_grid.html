@@ -1,7 +1,18 @@
 {% extends "../layouts/base.html" %}
 
+{% block headstyles %}
+<style type="text/css">
+{% include "../partials/isotope.css" %}
+</style>
+{% endblock %}
+
 {% block body %}{% autoescape false %}{{ content }}{% endautoescape %}{% endblock %}
 
-{% block footscript %}<script>
+{% block footscript %}
+<script>
 {% include "../partials/jquery.isotope.min.js" %}
-</script>{% endblock %}
+</script>
+<script>
+{% include "../partials/reference_grid.js" %}
+</script>
+{% endblock %}
