@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
   <meta charset="utf-8">
   <title>{{ title }}</title>
   <meta name="description" content="{{ description }}">
   <script>
   {% include "../partials/modernizr.custom.18375.js" %}
+  </script>
+  <script>
+  {% include "../partials/head_script.js" %}
   </script>
   <link rel="stylesheet" href="{{ stylesheet_path }}">
 </head>
@@ -29,7 +32,7 @@
           Why I'm Killing W3Schools &raquo;</a>
       </li>
       <li>
-        <a href="https://www.htmlandcsstutorial.com/blog/the-plan-to-kill-w3schools-part-2"
+        <a href="/blog/the-plan-to-kill-w3schools-part-2"
           title="The Plan to Kill W3Schools">
           The Plan to Kill W3Schools &raquo;</a>
       </li>
@@ -55,8 +58,9 @@
   </div>
 </footer>
 
-{% include "../partials/google_analytics.html" %}
-{% include "../partials/kissmetrics.html" %}
+<script>
+{% include "../partials/analytics.js" %}
+</script>
 
 <!--
 <script src="{{ script_path }}"></script>
