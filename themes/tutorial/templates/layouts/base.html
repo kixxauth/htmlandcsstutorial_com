@@ -1,29 +1,37 @@
 <!DOCTYPE html>
-<html class="no-javascript">
+<html>
 <head>
   <meta charset="utf-8">
   <title>{{ title }}</title>
   <meta name="description" content="{{ description }}">
-  <script>document.documentElement.className = 'javascript';</script>
+  <script>
+  {% include "../partials/modernizr.custom.18375.js" %}
+  </script>
   <link rel="stylesheet" href="{{ stylesheet_path }}">
 </head>
 <body id="{{ page_id }}">
 
 <header id="header">
-  <div class="hgroup">
+  <hgroup>
     <img src="/assets/images/HTML5_Badge_32.png" alt="W3C HTML5 badge" />
     <a href="/">The HTML and CSS Tutorial</a>
-  </div>
-  <nav>
-    <ul class="header-nav">
+  </hgroup>
+  <nav id="sitenav">
+    <ul>
       <li>
-        <a href="/references/html_grid" title="The HTML Reference Grid">references</a>
+        <a href="/references/html_grid"
+          title="The HTML Reference Grid">
+          References &raquo;</a>
       </li>
       <li>
-        <a href="/resources/web_developers_directory" title="The Web Developers Resource Directory">resources</a>
+        <a href="/blog/why-im-killing-w3schools-and-you-can-too"
+          title="Why I'm Killing W3Schools">
+          Why I'm Killing W3Schools &raquo;</a>
       </li>
       <li>
-        <a href="/blog/" title="HTML and CSS Tutorial Blog">blog</a>
+        <a href="https://www.htmlandcsstutorial.com/blog/the-plan-to-kill-w3schools-part-2"
+          title="The Plan to Kill W3Schools">
+          The Plan to Kill W3Schools &raquo;</a>
       </li>
     </ul>
   </nav>
@@ -40,12 +48,19 @@
     <img src="/assets/images/html5-badge.png" alt="W3C HTML5 badge" />
     and it has a flat design (mostly because I'm lazy).
   </p>
+  <div class="legal">
+    <p class="media"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a></p>
+    <p class="text"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">The HTML and CSS Tutorial</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.kixx.name" property="cc:attributionName" rel="cc:attributionURL">Kris Walker</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/kixxauth/htmlandcsstutorial_com" rel="dct:source">GitHub.com/kixxauth/htmlandcsstutorial_com</a>
+    </p>
+  </div>
 </footer>
 
 {% include "../partials/google_analytics.html" %}
 {% include "../partials/kissmetrics.html" %}
 
+<!--
 <script src="{{ script_path }}"></script>
+-->
 
 </body>
 </html>

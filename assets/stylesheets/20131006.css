@@ -1,0 +1,172 @@
+@font-face {
+  font-family: 'League Gothic';
+  src: url('/assets/fonts/leaguegothic-regular-webfont.eot');
+  src: url('/assets/fonts/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/leaguegothic-regular-webfont.woff') format('woff'),
+       url('/assets/fonts/leaguegothic-regular-webfont.ttf') format('truetype'),
+       url('/assets/fonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:active, a:hover {
+  outline: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.5;
+  background-color: #000;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+  max-width: 100%; 
+}
+a {
+  text-decoration: none;
+  color: #0092bf;
+}
+form label {
+  margin-bottom: 0.75em;
+  font-size: 1.1em;
+  display: block;
+  color: #777;
+}
+form input[type="text"],
+form input[type="email"] {
+  font-size: 1em;
+  display: inline-block;
+  padding: 0.5em 1em;
+  -webkit-box-shadow: 0 0 0 2px rgba(100,100,100,0.3);
+  box-shadow: 0 0 0 2px rgba(100,100,100,0.3); 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #777;
+}
+form input[type="text"]:hover,
+form input[type="email"]:hover {
+  -webkit-box-shadow: 0 0 0 3px rgba(100,100,100,0.4);
+  box-shadow: 0 0 0 3px rgba(100,100,100,0.4); 
+}
+form input[type="text"]:focus,
+form input[type="email"]:focus {
+  -webkit-box-shadow: 0 0 0 3px #0092bf;
+  box-shadow: 0 0 0 3px #0092bf; 
+}
+form .form-controls {
+  margin: 1.5em 0;
+}
+.button {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  display: inline-block;
+  background-color: #fff;
+  padding: 0.3em 1em;
+  -webkit-box-shadow: 0 0 0 2px #0092bf;
+  box-shadow: 0 0 0 2px #0092bf; 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #0092bf;
+}
+.button:hover {
+  -webkit-box-shadow: 0 0 0 3px #0092bf;
+  box-shadow: 0 0 0 3px #0092bf; 
+}
+#wrapper {
+  width: 960px;
+  margin: 30px auto;
+}
+@media (max-width: 999px) {
+  #wrapper {
+    width: 94%;
+    margin: 0 0 0 3%;
+  }
+}
+#header {
+  border-bottom: #444 1px solid;
+  overflow: hidden;
+}
+#header>hgroup {
+  font-family: "League Gothic", "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+  margin: 0.2em 16px;
+  font-size: 2em;
+  color: #444;
+  font-weight: normal;
+  float: left;
+}
+#header>hgroup>a {
+  color: #444;
+}
+#header>hgroup>img {
+  margin: 0.3em 12px;
+}
+#sitenav {
+  font-size: 0.9em;
+}
+#sitenav>ul {
+  list-style-type: none;
+  padding: none;
+  float: right;
+  margin: 1em 1.5em;
+  text-align: right;
+  line-height: 1.7;
+}
+#sitenav a {
+  font-weight: bold;
+  color: #444;
+}
+#sitenav a:hover {
+  color: #0092bf;
+}
+
+#footer {
+  background-color: #191919;
+  color: #555;
+  padding: 20px;
+}
+#footer a {
+  color: #777;
+}
+#footer .legal {
+  font-size: 0.8em;
+  overflow: hidden;
+}
+#footer .legal>.media {
+  float: left;
+  width: 88px;
+}
+#footer .legal>.text {
+  margin-left: 98px;
+}
