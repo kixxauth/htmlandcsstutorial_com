@@ -1,3 +1,7 @@
 {% extends "../layouts/base.html" %}
 
 {% block body %}{% autoescape false %}{{ content }}{% endautoescape %}{% endblock %}
+
+{% block footscript %}<script>
+{% include "../partials/jquery.isotope.min.js" %}
+</script>{% endblock %}
