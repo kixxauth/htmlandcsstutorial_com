@@ -1,7 +1,5 @@
 (function () {
 
-$('#html-elements-grid').isotope({
-  masonry: {columnWidth: 200, gutterWidth: 10}
-});
+$('#html-elements-grid').isotope();
 
 }());

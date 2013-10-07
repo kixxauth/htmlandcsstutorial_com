@@ -165,6 +165,10 @@ blockquote,
     margin: 0 0 0 3%;
   }
 }
+#html-reference-grid #wrapper {
+  width: 94%;
+  margin: 0 0 0 3%;
+}
 #header {
   border-bottom: #444 1px solid;
   overflow: hidden;
@@ -302,21 +306,54 @@ blockquote,
   padding: 0;
   list-style-type: none;
 }
-.reference-grid>li {
-}
 .reference-grid>li>code {
   display: block;
-  font-size: 0.95em;
+  font-size: 0.8em;
+  width: 24em;
   padding: 0.5em;
   margin: 0.5em;
   background-color: #fff;
   font-family: "source_code_pro", monospace;
+  font-weight: bold;
 }
 .reference-grid>li>code strong {
   font-size: 1.3em;
-  background-color: #ff9;
+  line-height: 2;
+}
+.reference-grid>li>code .tagname {
+  background-color: #fff;
+  padding: 0.1em 0.3em;
 }
 .reference-grid>li>code .text {
   font-family: "Helvetica Neue", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
-  color: #999;
+  color: #ccc;
+}
+.reference-grid>li.meta>code {
+}
+.reference-grid>li.phrases>code {
+  background-color: #ff6;
+}
+.reference-grid>li.presentation>code {
+}
+.reference-grid>li.embedded-content>code {
+  background-color: #930;
+  color: #fff;
+}
+.reference-grid>li.embedded-content .tagname {
+  color: #333;
+}
+.reference-grid>li.tables>code {
+}
+.reference-grid>li.sections>code {
+  background-color: #069;
+  color: #fff;
+}
+.reference-grid>li.sections .tagname {
+  color: #333;
+}
+.reference-grid>li.forms>code {
+}
+.reference-grid>li.grouping>code {
+}
+.reference-grid>li.links>code {
 }

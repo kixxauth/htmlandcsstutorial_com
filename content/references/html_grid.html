@@ -4,29 +4,79 @@ page_id: "html-reference-grid"
 reference_tiles:
   -
     tagname: "a"
-    attributes: 'href="./reports?report=qr46"<br>rel="alternate"<br>target="_blank"<br>download="quarterly_report.pdf"<br>type="application/pdf"'
+    categories: "inline links phrases"
+    attributes:
+      -
+        name: "href"
+        value: "./reports?report=qr46"
+      -
+        name: "rel"
+        value: "alternate"
+      -
+        name: "target"
+        value: "_blank"
+      -
+        name: "download"
+        value: "quarterly_report.pdf"
+      -
+        name: "type"
+        value: "application/pdf"
     text: "Querterly Report"
   -
     tagname: "div"
-    attributes: 'class="reports"'
+    categories: "block sections grouping"
+    attributes:
+      -
+        name: "class"
+        value: "reports"
     text: "&lt;p&gt;&hellip;&lt;/p&gt;&lt;p&gt;&hellip;&lt;/p&gt;"
   -
     tagname: "header"
-    attributes: 'id="site-branding"<br>class="navbar"'
+    categories: "block sections grouping"
+    attributes:
+      -
+        name: "id"
+        value: "site-branding"
+      -
+        name: "class"
+        value: "banner"
     text: "Acme Corp"
   -
     tagname: "img"
-    attributes: 'src="/images/john-doe-avatar.jpg"<br>alt="John Doe avatar"<br>height="150"<br>width="120"<br>crossorigin="anonymous"<br>usemap="#head-map"<br>ismap'
+    categories: "inline embedded-content"
+    attributes:
+      -
+        name: "src"
+        value: "/images/john-doe-avatar.jpg"
+      -
+        name: "alt"
+        value: "John Doe's avatar"
+      -
+        name: "height"
+        value: "150"
+      -
+        name: "width"
+        value: "120"
+      -
+        name: "crossorigin"
+        value: "anonymous"
+      -
+        name: "usemap"
+        value: "#head-map"
+      -
+        name: "ismap"
 ---
 
 
 <ul id="html-elements-grid" class="reference-grid">
   {% for item in reference_tiles %}
-  <li><code>
-    <strong>&lt;{{ item.tagname }}</strong><br>
-    {{ item.attributes }}<br>
+  <li class="{{ item.categories }}"><code>
+    <strong class="tagname">&lt;{{ item.tagname }}</strong><br>
+    {% for attr in item.attributes %}
+      <span class="attr-name">{{ attr.name }}</span>{% if attr.value %}<span class="attr-eq">=</span><span class="attr-val">"{{ attr.value }}"</span>{% endif %}<br>
+    {% endfor %}
     {% if item.text %}
-    <strong>&gt;</strong><span class="text">{{ item.text }}</span><strong>&lt;/{{ item.tagname }}&gt;</strong>
+    <strong>&gt;</strong><span class="text">{{ item.text }}</span><strong class="tagname">&lt;/{{ item.tagname }}&gt;</strong>
     {% else %}
     <strong>&gt;</strong>
     {% endif %}
