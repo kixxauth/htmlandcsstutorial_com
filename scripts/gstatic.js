@@ -1,4 +1,4 @@
-require('coffee-script');
+require('coffee-script/register');
 
 var contentSource = process.argv[2];
 var templates = process.argv[3];

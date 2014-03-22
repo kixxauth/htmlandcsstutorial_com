@@ -1,5 +1,5 @@
-require('coffee-script');
- 
+require('coffee-script/register');
+
 var PATH = require('path');
 
 var address = parseAddress(process.argv[2] || '127.0.0.1:8080');
